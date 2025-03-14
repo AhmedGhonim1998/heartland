@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Pergola Calculator</title>
+    <link rel="stylesheet" href="styles/style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Traditional Pergola Calculator</h1>
+        <form id="pergolaForm">
+            <input type="hidden" id="model" name="model" value="Traditional">
+            <div class="form-section">
+                <h3>Basic Configuration</h3>
+                <div class="form-group">
+                    <label for="attachmentType">Attachment Type:</label>
+                    <select id="attachmentType" name="attachmentType" required>
+                        <option value="">Select...</option>
+                        <option value="Attached">Attached</option>
+                        <option value="Freestanding">Freestanding</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="depth">Depth:</label>
+                    <select id="depth" name="depth" required>
+                        <option value="">Select...</option>
+                        <option value="8'">8'</option>
+                        <option value="10'">10'</option>
+                        <option value="12'">12'</option>
+                        <option value="14'">14'</option>
+                        <option value="16'">16'</option>
+                        <option value="18'">18'</option>
+                        <option value="20'">20'</option>
+                        <option value="24'">24'</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="width">Width:</label>
+                    <select id="width" name="width" required>
+                        <option value="">Select...</option>
+                        <option value="8'">8'</option>
+                        <option value="10'">10'</option>
+                        <option value="12'">12'</option>
+                        <option value="14'">14'</option>
+                        <option value="16'">16'</option>
+                        <option value="18'">18'</option>
+                        <option value="20'">20'</option>
+                        <option value="24'">24'</option>
+                        <option value="28'">28'</option>
+                        <option value="32'">32'</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <select id="color" name="color" required>
+                        <option value="">Select...</option>
+                        <option value="White">White</option>
+                        <option value="Tan">Tan</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Post & Structure Options</h3>
+                <div class="form-group">
+                    <label for="postType">Post Type:</label>
+                    <select id="postType" name="postType" required>
+                        <option value="">Select...</option>
+                        <option value="5in sqr post x 10'">5in Sqr Post x 10'</option>
+                        <option value="5in sqr post w trim ring x 10'">5in Sqr Post w/ trim ring x 10'</option>
+                        <option value="7in Sqr Column x 10'">7in Sqr Column x 10'</option>
+                        <option value="10in Round Column x 10'">10in Round Column x 10'</option>
+                        <option value="8in Sqr Column x 10'">8in Sqr Column x 10'</option>
+                        <option value="8in Sqr Column x 10' w/ trim ring">8in Sqr Column x 10' w/ trim ring</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="purlinSpacing">Purlin Spacing (Shade Level):</label>
+                    <select id="purlinSpacing" name="purlinSpacing" required>
+                        <option value="">Select...</option>
+                        <option value="0.9">90% Shade</option>
+                        <option value="0.75">75% Shade</option>
+                        <option value="0.5">50% Shade</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Accessories & Add-ons</h3>
+                <div class="form-group">
+                    <label for="capStyle">Cap Style:</label>
+                    <select id="capStyle" name="capStyle" required>
+                        <option value="">Select...</option>
+                        <option value="Standard Cap (Scroll)">Standard Cap (Scroll)</option>
+                        <option value="Flat Cap">Flat Cap</option>
+                        <option value="Bevel Cap">Bevel Cap</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fanMount">Fan Mount:</label>
+                    <select id="fanMount" name="fanMount" required>
+                        <option value="">Select...</option>
+                        <option value="0">None</option>
+                        <option value="1">1 Mount</option>
+                        <option value="2">2 Mounts</option>
+                        <option value="3">3 Mounts</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hurricaneClips">Hurricane Clips:</label>
+                    <select id="hurricaneClips" name="hurricaneClips" required>
+                        <option value="">Select...</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="beamAttachBrackets">Beam Attach Brackets:</label>
+                    <select id="beamAttachBrackets" name="beamAttachBrackets" required>
+                        <option value="">Select...</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="calculateBtn">Calculate</button>
+        </form>
+        <div class="results" id="resultsSection" style="display: none;">
+            <h2>Calculation Results</h2>
+            <div class="result-section">
+                <h3>Structure Details</h3>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Beam Count</td>
+                        <td id="beamCount">-</td>
+                    </tr>
+                    <tr>
+                        <td>Beam Length</td>
+                        <td id="beamLength">-</td>
+                    </tr>
+                    <tr>
+                        <td>Rafter Count</td>
+                        <td id="rafterCount">-</td>
+                    </tr>
+                    <tr>
+                        <td>Rafter Length</td>
+                        <td id="rafterLength">-</td>
+                    </tr>
+                    <tr>
+                        <td>Purlin Count</td>
+                        <td id="purlinCount">-</td>
+                    </tr>
+                    <tr>
+                        <td>Purlin Length</td>
+                        <td id="purlinLength">-</td>
+                    </tr>
+                    <tr>
+                        <td>Post Count</td>
+                        <td id="postCount">-</td>
+                    </tr>
+                    <tr>
+                        <td>Monster Posts Required</td>
+                        <td id="monsterPosts">-</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-section">
+                <h3>Pricing Summary</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>List Price</th>
+                        <th>Unit Price</th>
+                    </tr>
+                    <tr>
+                        <td>Reinforcement</td>
+                        <td id="reinforcementListPrice">-</td>
+                        <td id="reinforcementUnitPrice">-</td>
+                    </tr>
+                    <tr>
+                        <td>Posts</td>
+                        <td id="postsListPrice">-</td>
+                        <td id="postsUnitPrice">-</td>
+                    </tr>
+                    <tr>
+                        <td>Columns</td>
+                        <td id="columnsListPrice">-</td>
+                        <td id="columnsUnitPrice">-</td>
+                    </tr>
+                    <tr>
+                        <td>Roof</td>
+                        <td id="roofListPrice">-</td>
+                        <td id="roofUnitPrice">-</td>
+                    </tr>
+                    <tr>
+                        <td>Trim/Fasteners</td>
+                        <td id="trimFastenersListPrice">-</td>
+                        <td id="trimFastenersUnitPrice">-</td>
+                    </tr>
+                    <tr>
+                        <td>Caps/Accessories</td>
+                        <td id="capsAccessoriesListPrice">-</td>
+                        <td id="capsAccessoriesUnitPrice">-</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Subtotal</td>
+                        <td id="subtotalList">-</td>
+                        <td id="subtotalUnit">-</td>
+                    </tr>
+                    <tr>
+                        <td>Tax (7%)</td>
+                        <td id="taxList">-</td>
+                        <td id="taxUnit">-</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Grand Total</td>
+                        <td id="grandTotalList">-</td>
+                        <td id="grandTotalUnit">-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
