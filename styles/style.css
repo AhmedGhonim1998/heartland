@@ -65,3 +65,25 @@ th {
 .total-row td {
     font-weight: bold;
 }
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th::before, td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    th {
+        display: none;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
