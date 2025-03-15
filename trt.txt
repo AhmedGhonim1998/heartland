@@ -1,0 +1,28 @@
+<div id="deliverySaleSection" class="form-section" style="display: none;">
+            <h3>Delivery & Sale Options</h3>
+            <div class="form-group">
+                <label for="attachmentType">Attachment Type:</label>
+                <select id="attachmentType" required>
+                    <option value="">Select...</option>
+                    <option value="Attached">Attached</option>
+                    <option value="Freestanding">Freestanding</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="deliveryLocation">Delivery Location:</label>
+                <select id="deliveryLocation" required>
+                    <option value="">Select Location</option>
+                    <option value="IA">Iowa (7% Tax)</option>
+                    <option value="IL">Illinois (6.25% Tax)</option>
+                    <option value="TX">Texas (6.25% Tax)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="saleType">Sale Type:</label>
+                <select id="saleType" required>
+                    <option value="">Select Sale Type</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Internet">Internet (5% Discount)</option>
+                </select>
+            </div>
+        </div>

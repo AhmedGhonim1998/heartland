@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f4f4f9;
+    line-height: 1.6;
 }
 .container {
     max-width: 1200px;
@@ -12,14 +13,13 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .model-selector {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
-    flex-wrap: wrap;
     margin-bottom: 25px;
 }
 .model-option {
-    flex: 1 1 30%;
-    padding: 20px;
+    padding: 25px;
     border: 2px solid #28a745;
     border-radius: 8px;
     cursor: pointer;
@@ -29,6 +29,7 @@ body {
 .model-option.selected {
     border-color: #218838;
     background: #e9f5db;
+    transform: scale(1.02);
 }
 .form-section {
     margin-bottom: 25px;
@@ -44,12 +45,30 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
 }
-select, input {
+select {
     width: 100%;
-    padding: 8px;
-    margin: 5px 0;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
+}
+.btn {
+    padding: 12px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    margin: 5px;
+}
+.btn:hover {
+    background: #218838;
+}
+.btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
 }
 .results {
     margin-top: 20px;
@@ -64,14 +83,53 @@ table {
 }
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: left;
 }
 th {
     background: #f2f2f2;
 }
-.total-row td {
+.total-row {
     font-weight: bold;
+    background: #d4edda;
+}
+@media (max-width: 768px) {
+    .model-selector {
+        grid-template-columns: 1fr;
+    }
+    .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        text-align: right;
+    }
+    th::before, td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-right: 10px;
+    }
+    th {
+        display: none;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
 }
 @media (max-width: 600px) {
     .model-selector { flex-direction: column; }
@@ -95,11 +153,4 @@ th {
         border: none;
         border-bottom: 1px solid #ddd;
     }
-}
-.btn{
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    width: 7%;
 }
