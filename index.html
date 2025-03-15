@@ -9,218 +9,143 @@
 </head>
 <body>
     <div class="container">
-        <h1>Traditional Pergola Calculator</h1>
-        <form id="pergolaForm">
-            <input type="hidden" id="model" name="model" value="Traditional">
-            <div class="form-section">
-                <h3>Basic Configuration</h3>
-                <div class="form-group">
-                    <label for="attachmentType">Attachment Type:</label>
-                    <select id="attachmentType" name="attachmentType" required>
-                        <option value="">Select...</option>
-                        <option value="Attached">Attached</option>
-                        <option value="Freestanding">Freestanding</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="depth">Depth:</label>
-                    <select id="depth" name="depth" required>
-                        <option value="">Select...</option>
-                        <option value="8'">8'</option>
-                        <option value="10'">10'</option>
-                        <option value="12'">12'</option>
-                        <option value="14'">14'</option>
-                        <option value="16'">16'</option>
-                        <option value="18'">18'</option>
-                        <option value="20'">20'</option>
-                        <option value="24'">24'</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="width">Width:</label>
-                    <select id="width" name="width" required>
-                        <option value="">Select...</option>
-                        <option value="8'">8'</option>
-                        <option value="10'">10'</option>
-                        <option value="12'">12'</option>
-                        <option value="14'">14'</option>
-                        <option value="16'">16'</option>
-                        <option value="18'">18'</option>
-                        <option value="20'">20'</option>
-                        <option value="24'">24'</option>
-                        <option value="28'">28'</option>
-                        <option value="32'">32'</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="color">Color:</label>
-                    <select id="color" name="color" required>
-                        <option value="">Select...</option>
-                        <option value="White">White</option>
-                        <option value="Tan">Tan</option>
-                        <option value="Black">Black</option>
-                    </select>
-                </div>
+        <h1>Pergola Quote Calculator</h1>
+        
+        <!-- Model Selector -->
+        <div class="model-selector">
+            <div class="model-option" data-model="Traditional">
+                <h3>Traditional</h3>
+                <p>Classic design with traditional styling</p>
             </div>
-            <div class="form-section">
-                <h3>Post & Structure Options</h3>
-                <div class="form-group">
-                    <label for="postType">Post Type:</label>
-                    <select id="postType" name="postType" required>
-                        <option value="">Select...</option>
-                        <option value="5in sqr post x 10'">5in Sqr Post x 10'</option>
-                        <option value="5in sqr post w trim ring x 10'">5in Sqr Post w/ trim ring x 10'</option>
-                        <option value="7in Sqr Column x 10'">7in Sqr Column x 10'</option>
-                        <option value="10in Round Column x 10'">10in Round Column x 10'</option>
-                        <option value="8in Sqr Column x 10'">8in Sqr Column x 10'</option>
-                        <option value="8in Sqr Column x 10' w/ trim ring">8in Sqr Column x 10' w/ trim ring</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="purlinSpacing">Purlin Spacing (Shade Level):</label>
-                    <select id="purlinSpacing" name="purlinSpacing" required>
-                        <option value="">Select...</option>
-                        <option value="0.9">90% Shade</option>
-                        <option value="0.75">75% Shade</option>
-                        <option value="0.5">50% Shade</option>
-                    </select>
-                </div>
+            <div class="model-option" data-model="Modern">
+                <h3>Modern</h3>
+                <p>Contemporary design with clean lines</p>
             </div>
-            <div class="form-section">
-                <h3>Accessories & Add-ons</h3>
-                <div class="form-group">
-                    <label for="capStyle">Cap Style:</label>
-                    <select id="capStyle" name="capStyle" required>
-                        <option value="">Select...</option>
-                        <option value="Standard Cap (Scroll)">Standard Cap (Scroll)</option>
-                        <option value="Flat Cap">Flat Cap</option>
-                        <option value="Bevel Cap">Bevel Cap</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="fanMount">Fan Mount:</label>
-                    <select id="fanMount" name="fanMount" required>
-                        <option value="">Select...</option>
-                        <option value="0">None</option>
-                        <option value="1">1 Mount</option>
-                        <option value="2">2 Mounts</option>
-                        <option value="3">3 Mounts</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="hurricaneClips">Hurricane Clips:</label>
-                    <select id="hurricaneClips" name="hurricaneClips" required>
-                        <option value="">Select...</option>
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="beamAttachBrackets">Beam Attach Brackets:</label>
-                    <select id="beamAttachBrackets" name="beamAttachBrackets" required>
-                        <option value="">Select...</option>
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
-                    </select>
-                </div>
+            <div class="model-option" data-model="Elements">
+                <h3>Elements</h3>
+                <p>Premium design with polycarbonate roof</p>
             </div>
-            <button type="submit" id="calculateBtn">Calculate</button>
-        </form>
-        <div class="results" id="resultsSection" style="display: none;">
-            <h2>Calculation Results</h2>
+        </div>
+
+        <!-- Configuration Options -->
+        <div id="optionsContainer" class="form-section" style="display: none;">
+            <h3>Configuration</h3>
+            <div class="form-group">
+                <label for="depth">Depth:</label>
+                <select id="depth">
+                    <option value="8'">8'</option>
+                    <option value="10'">10'</option>
+                    <option value="12'">12'</option>
+                    <option value="14'">14'</option>
+                    <option value="16'">16'</option>
+                    <option value="18'">18'</option>
+                    <option value="20'">20'</option>
+                    <option value="24'">24'</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="width">Width:</label>
+                <select id="width">
+                    <option value="8'">8'</option>
+                    <option value="10'">10'</option>
+                    <option value="12'">12'</option>
+                    <option value="14'">14'</option>
+                    <option value="16'">16'</option>
+                    <option value="18'">18'</option>
+                    <option value="20'">20'</option>
+                    <option value="24'">24'</option>
+                    <option value="28'">28'</option>
+                    <option value="32'">32'</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="color">Color:</label>
+                <select id="color">
+                    <option value="White">White</option>
+                    <option value="Tan">Tan</option>
+                    <option value="Black">Black</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="postType">Post Type:</label>
+                <select id="postType">
+                    <option value="5in sqr post x 10'">5in Sqr Post x 10'</option>
+                    <option value="5in sqr post w trim ring x 10'">5in Sqr Post w/ trim ring x 10'</option>
+                    <option value="7in Sqr Column x 10'">7in Sqr Column x 10'</option>
+                    <option value="10in Round Column x 10'">10in Round Column x 10'</option>
+                    <option value="8in Sqr Column x 10'">8in Sqr Column x 10'</option>
+                    <option value="8in Sqr Column x 10' w/ trim ring">8in Sqr Column x 10' w/ trim ring</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="purlinSpacing">Vinyl Shade Level:</label>
+                <select id="purlinSpacing">
+                    <option value="0.5">50% Shade</option>
+                    <option value="0.75">75% Shade</option>
+                    <option value="0.9">90% Shade</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="capStyle">Cap Style:</label>
+                <select id="capStyle">
+                    <option value="Standard Cap (Scroll)">Standard Cap (Scroll)</option>
+                    <option value="Flat Cap">Flat Cap</option>
+                    <option value="Bevel Cap">Bevel Cap</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fanMounts">Fan Mounts:</label>
+                <select id="fanMounts">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hurricaneClips">Hurricane Clips:</label>
+                <select id="hurricaneClips">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="beamBrackets">Beam Attach Brackets:</label>
+                <select id="beamBrackets">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+            <button id="calculateBtn" class="btn">Calculate</button>
+            <button id="resetBtn" class="btn">Reset</button>
+            <button id="exportBtn" class="btn" disabled>Export CSV</button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results" id="quoteSummary" style="display: none;">
+            <h2>Quote Summary</h2>
             <div class="result-section">
-                <h3>Structure Details</h3>
-                <table>
+                <h3>Component Pricing</h3>
+                <table id="componentsTable">
                     <tr>
-                        <th>Item</th>
-                        <th>Value</th>
-                    </tr>
-                    <tr>
-                        <td data-label="Beam Count">Beam Count</td>
-                        <td id="beamCount">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Beam Length">Beam Length</td>
-                        <td id="beamLength">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Rafter Count">Rafter Count</td>
-                        <td id="rafterCount">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Rafter Length">Rafter Length</td>
-                        <td id="rafterLength">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Purlin Count">Purlin Count</td>
-                        <td id="purlinCount">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Purlin Length">Purlin Length</td>
-                        <td id="purlinLength">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Post Count">Post Count</td>
-                        <td id="postCount">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Monster Posts Required">Monster Posts Required</td>
-                        <td id="monsterPosts">-</td>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
                     </tr>
                 </table>
             </div>
             <div class="result-section">
-                <h3>Pricing Summary</h3>
-                <table>
+                <h3>Final Pricing</h3>
+                <table id="pricingTable">
                     <tr>
                         <th>Category</th>
-                        <th>List Price</th>
-                        <th>Unit Price</th>
-                    </tr>
-                    <tr>
-                        <td data-label="Reinforcement">Reinforcement</td>
-                        <td id="reinforcementListPrice">-</td>
-                        <td id="reinforcementUnitPrice">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Posts">Posts</td>
-                        <td id="postsListPrice">-</td>
-                        <td id="postsUnitPrice">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Columns">Columns</td>
-                        <td id="columnsListPrice">-</td>
-                        <td id="columnsUnitPrice">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Roof">Roof</td>
-                        <td id="roofListPrice">-</td>
-                        <td id="roofUnitPrice">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Trim/Fasteners">Trim/Fasteners</td>
-                        <td id="trimFastenersListPrice">-</td>
-                        <td id="trimFastenersUnitPrice">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Caps/Accessories">Caps/Accessories</td>
-                        <td id="capsAccessoriesListPrice">-</td>
-                        <td id="capsAccessoriesUnitPrice">-</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td data-label="Subtotal">Subtotal</td>
-                        <td id="subtotalList">-</td>
-                        <td id="subtotalUnit">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Tax (7%)">Tax (7%)</td>
-                        <td id="taxList">-</td>
-                        <td id="taxUnit">-</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td data-label="Grand Total">Grand Total</td>
-                        <td id="grandTotalList">-</td>
-                        <td id="grandTotalUnit">-</td>
+                        <th>Amount</th>
                     </tr>
                 </table>
             </div>
